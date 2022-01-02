@@ -1,60 +1,5 @@
-/*                                *****************                        starting lesson code
 
-var playerName = window.prompt("What is your robot's name?");
-// Note the lack of quotation marks around playerName
-
-console.log(playerName);
-
-console.log("This logs a string, good for leaving yourself a message")
-
-//This will do math and log 20
-console.log(10 + 10);
-
-//What is this?
-
-console.log("The best robot ever is " + playerName);
-
-console.log("The number on robot is " + playerName)
-
-// just a function example  window.alert("This is an alert! Javascript is running!");
-
-//to declare a function
-
-function fight() {
-    window.alert("The fight has begun!");
-}
-
-//to call a function
-
-//fight();
-
-*/
-
-/*
-                                ***********************                     two ways to declare a function
-    Function Declaration
-Function declaration: This is when we create a function using the function keyword first. 
-The following code shows an example:
-
-// create function
-function fight() {
-  window.alert("Welcome to Robot Gladiators!");
-}
-// execute function
-fight();
-
-    Function Expression
-Function expression: This is when we create a function by assigning it to a variable. 
-The following code shows an example:
-
-// create function
-var fight = function() {
-  window.alert("Welcome to Robot Gladiators!");
-};
-// execute function
-fight();
-
-*/
+window.alert("Welcome to the Robot Gladiators!");
 
 var playerName = window.prompt("What is your robot's name?"); // 1️⃣ first thing is to ask what your player name is
 var playerHealth = 100;
@@ -62,16 +7,30 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 // You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
+// console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
+/*
+console.log(enemyNames);                            // to print to console this array (how many elements and what they are)
+console.log(enemyNames[0]);                         // to print to console what element is at this position in the index
+console.log(enemyNames.length);                     // prints how many elements in array
+console.log(enemyNames[enemyNames.length - 1]);     // prints last element in array
+*/
+/*
+for(var i = 0; i < enemyNames.length; i++) {
+    console.log(enemyNames[i]);
+    console.log(i);
+    console.log(enemyNames[i] + " is at " + i + " index");
+  }
+*/
+
 
 //              ***************               2️⃣  fight function is the second thing that will run 
-var fight = function() {
+var fight = function(enemyNames) {
     // Alert players that they are starting the round
-    window.alert("Welcome to the Robot Gladiators!"); //         ❕💨   second window that will appear
+     //         ❕💨   second window that will appear
 
     //Ask the player is they'd like to fight or run
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.'); // ❕💨 third window 
@@ -80,20 +39,20 @@ var fight = function() {
     if (promptFight ==="fight" || promptFight === "FIGHT") {
         enemyHealth = enemyHealth - playerAttack; //remove enemy's health by subtracting the amount set in the playerAttack variable
         console.log(
-            playerName + " attacked " + enemyName + ". " + enemyName + "now has " + enemyHealth + " health remaining."
+            playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining."
         );
 
         //                  *******************                 ❕💨              check enemy's health and give update
         if (enemyHealth <= 0) {
-            window.alert(enemyName + " has died!");
+            window.alert(enemyNames + " has died!");
         } else {
-            window.alert(enemyName + " has " + enemyHealth + " health left.");
+            window.alert(enemyNames + " has " + enemyHealth + " health left.");
         }
 
         // remove player's health by subtracting the amount set in the enemyAttack variable
         playerHealth = playerHealth - enemyAttack;
         console.log(
-            enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+            enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
 
         // check player's health
@@ -124,7 +83,8 @@ var fight = function() {
     }
 };
 
-// run fight function to start game
-fight()
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+  }
 
     
