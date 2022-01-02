@@ -29,10 +29,8 @@ for(var i = 0; i < enemyNames.length; i++) {
 
 //              ***************               2️⃣  fight function is the second thing that will run 
 var fight = function(enemyNames) {
-    // Alert players that they are starting the round
-     //         ❕💨   second window that will appear
-
-    //Ask the player is they'd like to fight or run
+    // repeat and execute as long as the enemy-robot is alive
+    while(enemyHealth > 0) {
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.'); // ❕💨 third window 
 
     //if player choses to fight, fight
@@ -80,11 +78,15 @@ var fight = function(enemyNames) {
         // if player did not choose 1 or 2 in prompt
     } else {
         window.alert("You need to pick a valid option. Try again!");
+    }    // place fight function code block here 
     }
+    
 };
 
 for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+    var pickedEnemyName = enemyNames[i]; // added this var to move onto the next enemy
+    enemyHealth = 50;
+    fight(pickedEnemyName);
   }
 
     
